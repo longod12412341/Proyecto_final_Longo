@@ -1,0 +1,34 @@
+{% extends "app_g/padre.html" %}
+{%block titulo%} Cursos Registro{%endblock titulo%}
+{% block contenidoQueCambia %}
+<body>
+    <div class="card">
+        <div class="card-body">
+            <h1>Celulares Usados</h1>
+        </div>
+      </div>
+
+    <ul>
+
+        {% for celular in object_list %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{ celular.imagen.url}}" class="card-img-top" alt="">
+            <div class="card-body">
+              <h4 class="card-title">{{ celular.modelo}} </h4>
+              <h6 class="card-subtitle mb-2 text-body-secondary">Estado: {{ celular.estado}}</h6>
+              <p class="card-text">
+                Precio: ${{ celular.precio}}
+              </p>
+              <a href="{% url "Detalle" celular.id %}" class="btn btn-primary" >Ver Publicacion</a>
+               
+              <a href="{% url "Editar" celular.id %}" class="btn btn-warning" >Editar</a>
+              {% if request.user.is_superuser%}
+              <a href="{% url "Borrar" celular.id %}" class="btn btn-danger" >Borrar</a>
+              {% endif %}
+            </div>
+        </div>
+                      
+       {% endfor%}
+       
+       <a href="{% url "Crear" %}" class="btn btn-success">Agrega Publicacion</a>
+ {% endblock contenidoQueCambia %}

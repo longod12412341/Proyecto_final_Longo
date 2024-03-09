@@ -1,0 +1,30 @@
+{% extends "app_g/padre.html" %}
+
+{% block contenidoQueCambia %}
+<h1>Informacion del vendedor:</h1>
+<a href="{% url "lista" %}">Regresar</a>
+<body>
+<p> Nombre del vendedor: <i> {{ celular.nombre }} </i></p>
+<p> Email :<i> {{ celular.email }} </i></p>
+<p> Telefono: <i> {{ celular.telefono }} </i></p>
+<p> Modelo :<i> {{ celular.modelo }} </i></p>
+<img src="{{ celular.imagen.url}}" width="200px"height="200" alt="">
+<p> Descripcion: <i> {{ celular.descripcion }} </i></p>
+<p> 
+
+    <h3>Comentarios</h3>  
+    <hr class="d-none d-md-block my-2 mb-3 mt-2"> 
+    {% for comentario in celular.comentario_set.all %}
+    <div class="mt-4 mb-2 border border-opacity-10 rounded p-1">
+        <div class="row">
+            <div class="col-8 d-flex">
+                <h5>{{ comentario.author.username }}</h5>
+                <span>- {{comentario.content}}</span>
+            </div>
+            <div class="col-4 text-end">
+            </div>
+        </div>
+    {%endfor%}
+</p>
+</body>
+        {% endblock contenidoQueCambia %}

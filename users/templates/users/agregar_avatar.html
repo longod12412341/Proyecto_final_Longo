@@ -1,0 +1,18 @@
+{% extends "app_g/padre.html" %}
+
+
+{% load static %}
+{%block titulo%} Agregar Avatar {%endblock titulo%}
+
+{% block contenidoQueCambia %} 
+
+<body>
+    <h3>Cargar Avatar</h3>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{mi_form.as_p}}
+    <input type="submit" value="Actulizar">
+    </form>
+</body>
+
+{%endblock%}

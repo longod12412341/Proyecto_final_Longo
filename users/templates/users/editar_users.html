@@ -1,0 +1,17 @@
+{% extends "app_g/padre.html" %}
+
+{% load static %}
+
+{%block titulo%} Editar usuario {%endblock titulo%}
+
+{% block contenidoQueCambia %} 
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <table>
+        {{ mi_form.as_table}}
+    </table>
+    <input type="submit" value="Actulizar">
+</form>
+
+{% endblock %} 

@@ -1,0 +1,13 @@
+{% extends "app_g/padre.html" %}
+
+{% block contenidoQueCambia %}
+
+<h1>Borrar Publicacion</h1>
+<body>
+    <form method="post">{%csrf_token%}
+        Estas seguro que desear borrar el curso "{{object}}?"
+        <input type="submit" value="submit"/> 
+
+    </form>
+</body>
+{% endblock %} 

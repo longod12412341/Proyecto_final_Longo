@@ -1,0 +1,18 @@
+{% extends "app_g/padre.html" %}
+{%block titulo%} Cursos Registro{%endblock titulo%}
+{% block contenidoQueCambia %}
+<body>
+    <h1>Users</h1>
+    <ul>
+        {% for user in object_list %}
+            <li>
+                <p> Nombre : {{user.nombre}} </p>
+                <p> Camada : {{ user.apellido}}</p>
+                <p> email : {{ user.email}}</p>
+                <a href="{% url "Detalle" curso.id %}"> Ver</a> |
+                <a href="{% url "Editar" curso.id %}"> Editar</a> |
+                <a href="{% url "Borrar" curso.id %}"> Borrar</a>
+                </p>
+            <li>    
+       {% endfor%}
+ {% endblock contenidoQueCambia %}
